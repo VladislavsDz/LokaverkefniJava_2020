@@ -39,3 +39,30 @@ function movieSelected(id){
 	window.location = 'movie.html';
 	return false;
 }
+
+function getMovie(){
+	let movieId = sessionStorage.getItem('movieId');
+
+	axios.get('http://www.omdbapi.com?i='+movieId)
+	.then((response) =>{
+		console.log(response);	
+	})
+
+	.catch((err) => {
+		console.log(err);
+		let movie = response.data;
+
+		let output =`
+			<div class="row">
+				<div class="col-md-4">
+				<img src="${movie.Poster}" class="thumbnail">
+			</div>
+
+			<div class="col-md-8">
+
+			</div>
+			</div>
+		`;
+	});
+
+}
