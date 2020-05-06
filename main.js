@@ -63,6 +63,8 @@ function getMovie(){
 			</div>
 			</div>
 		`;
+
+		$('#movie').html(output);
 	});
 
 }
